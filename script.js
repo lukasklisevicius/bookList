@@ -2,17 +2,16 @@
 // apziureti butinas klaidas pagal pvz
 // zvaigdutes ir DOM DOM
 
+//modal
+const modal = document.getElementById("myModal");
+const btn = document.getElementById("edit");
+const span = document.getElementsByClassName("close")[0];
+//table
+const table = document.querySelector('.table')
+const td = document.querySelectorAll('.td')
+const th = document.querySelectorAll('.th')
 
-// Get the modal
-var modal = document.getElementById("myModal");
-
-// Get the button that opens the modal
-var btn = document.getElementById("edit");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on the button, open the modal
+//modal logic
 btn.onclick = function() {
   modal.style.display = "block";
 }
