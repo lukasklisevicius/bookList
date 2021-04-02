@@ -9,6 +9,7 @@
     --text: rgb(104, 113, 114);
     --text-dark: rgb(13, 39, 38);
     --white: #fff;
+    --star: "\f005";
 }
 
 /* full body style - mobile first*/
@@ -38,7 +39,7 @@ h1 span {
     color: var(--text-dark);
 }
 
-body, .container, form, .td-rate,.td,.th,.td-title,.stars{display: flex;}
+body, .container, form, .td-rate,.td,.th,.td-title,.stars,.starss,.modal-stars{display: flex;}
 
 body, .container {
     align-items: center;
@@ -67,7 +68,7 @@ form {
     height: 400px;
 }
 
-.submit {
+#button {
     background-color: var(--primary);
     color: var(--white);
     font-size: 16px;
@@ -78,7 +79,7 @@ form {
 
 .footer, table {
     width: 100%;
-    background-color: var(--primary-light);
+    background-color: var(--white);
 }
 
 input, button {
@@ -132,14 +133,26 @@ input, button {
     border: none;
 }
 
-.stars {
+.star-rate{
+    font-size: 16px;
+    margin-left: 0;
+    padding-left: 0;
+    list-style-type: none;
+}
+
+.stars,.modal-stars{
+    font-weight: 700;
+    content: "\f005";
+    font-family: 'Font Awesome 5 Free';
     margin-left: 0;
     padding-left: 0;
     color:var(--text);
     list-style-type: none;
 }
 
-.star {width: 1.1rem;}
+
+.star{width: 1.1rem;}
+.starss{padding: 0;}
 
 /* grid areas */
 .th1{grid-area: th1;}
@@ -153,6 +166,8 @@ input, button {
 
 /* grid */
 .tb-data{
+    background-color:var(--primary-light);
+    margin-bottom: 10px;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
@@ -167,16 +182,16 @@ input, button {
 
 /* all fx */
 
-.table:hover,input:hover,.submit:hover,.table:hover,.btns button:hover,.star:hover{cursor: pointer;}
+.table:hover,input:hover,#button:hover,.table:hover,.btns button:hover,.star:hover{cursor: pointer;}
 
-input:focus,.submit:focus{outline: none;}
+input:focus,#buton:focus{outline: none;}
 
 /* class active */
 .star.active,.btns button:hover {color: lightseagreen;}
 
 input:hover {border: 1px solid lightseagreen;}
 
-.submit:hover{background-color: rgb(47, 151, 146);}
+#button:hover{background-color: rgb(47, 151, 146);}
 
 input:focus {
     border: 2px solid lightseagreen;
@@ -185,12 +200,30 @@ input:focus {
 
 .star:hover,.btns button:hover {transform: scale(1.2);}
 
-.submit:active{transform: scale(0.98);}
+#button:active{transform: scale(0.98);}
+
+
+.star::before{
+    content: var(--star);
+    color: var(--primary);
+}
+.star.active ~ .star::before{
+    content: var(--star);
+    color: var(--text);
+}
+.star:hover .star::before{
+    content: var(--star);
+    color: var(--primary);
+}
+.star:hover ~ .star::before{
+    content: var(--star);
+    color: var(--text);
+}
 
 .disabled:hover {
     cursor:not-allowed;
     transform: none;
-    color: rgb(132, 144, 145);
+
 }
 
 /* The Modal (background) */
@@ -233,9 +266,17 @@ input:focus {
     cursor: pointer;
   }
 
+  li.active{
+      color: var(--primary);
+  }
+
+  
+
 /* at media with biger screen size */
   @media(min-width:900px){
+
         .tb-data{
+            margin-bottom: 0;
             grid-template-rows: auto;
             grid-template-columns: 1fr 1fr 1fr 1fr;
             grid-template-areas: "td1 td2 td3 td4";
@@ -256,4 +297,5 @@ input:focus {
         .th1,.th2,.th3,.td1,.td2,.td3 {border-right: 1px solid rgb(181, 201, 202);}
 
         .books {display: none;}
+        
   }
