@@ -70,7 +70,7 @@ stars.forEach(star => star.classList.remove('active'))
 elClass.add('active')
 rate = e.target.value
 console.log(rate)
-}else{}
+}
 }
 
 const form = document.querySelector('#input-form')
