@@ -86,7 +86,15 @@ input, button {
     height: 2rem;
 }
 
-.tb-head{display: none;}
+.tb-head{
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    display: none;
+}
+.tb-data{
+
+    border-bottom: 1px solid var(--border);
+}
 
 .books {
     background-color: var(--white);
@@ -96,12 +104,13 @@ input, button {
 .td,.td-title,.td-rate{color: var(--text);}
 
 .table, .td,.th ,.td-title,.td-rate{
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
+
     border-collapse: collapse;
 }
 
 .th {
+    padding: 5px;
+    margin: 5px 0;
     background-color:var(--white);
     font-weight: bold;
 }
@@ -109,7 +118,7 @@ input, button {
 
 .td,.th,.td-title,.td-rate{
     align-items: center;
-    padding: 5px;
+    margin: 5px;
 }
 
 .td2,.td3 {display: none;}
@@ -127,11 +136,13 @@ input, button {
 .btns button{
     background-color: var(--primary-light);
     color: var(--text);
-    margin: 0 5px;
+    margin: 0 3px;
     padding: 0;
     outline: none;
     border: none;
 }
+
+.btns {padding-right: 10px;}
 
 .star-rate{
     font-size: 16px;
@@ -182,7 +193,7 @@ input, button {
 
 /* all fx */
 
-.table:hover,input:hover,#button:hover,.table:hover,.btns button:hover,.star:hover{cursor: pointer;}
+input:hover,#button:hover,.btns button:hover,.star:hover{cursor: pointer;}
 
 input:focus,#buton:focus{outline: none;}
 
